@@ -136,6 +136,11 @@
 			return _anims[name];
 		}
 		
+		public function getAnim(name : String) : Anim
+		{
+			return _anims[name];
+		}
+		
 		/**
 		 * Plays an animation.
 		 * @param	name		Name of the animation to play.
@@ -155,7 +160,8 @@
 				return null;
 			}
 			_index = 0;
-			_timer = 0;
+			if (frame != 0)
+				_timer = 0;
 			_frame = uint(_anim._frames[frame % _anim._frameCount]);
 			complete = false;
 			updateBuffer();

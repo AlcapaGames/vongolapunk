@@ -1,6 +1,7 @@
 ﻿package net.flashpunk.graphics 
 {
 	import flash.display.BitmapData;
+	import flash.text.AntiAliasType;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextLineMetrics;
@@ -323,6 +324,9 @@
 					remainder = tlm.x % 1;
 					_field.x = -remainder;
 					
+					_field.x = int(_field.x);
+					_field.y = int(_field.y);
+					
 					FP.rect.x = 0;
 					FP.rect.y = tlm_y;
 					FP.rect.width = _width;
@@ -333,6 +337,8 @@
 					tlm_y += tlm.height;
 				}
 			} else {
+				_field.x = int(_field.x);
+				_field.y = int(_field.y);
 				_source.draw(_field);
 			}
 			

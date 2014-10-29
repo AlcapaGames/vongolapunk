@@ -107,6 +107,13 @@ package net.flashpunk.graphics
 			_bitmap.bitmapData = _buffer;
 		}
 		
+		public function isInsideScreen(x : Number, y : Number, width : int, height : int) : Boolean
+		{
+			var screenRect : Rectangle = new Rectangle(x + this.x - originX - FP.camera.x * scrollX, y + this.y - originY - FP.camera.y * scrollY,
+				scaledWidth, scaledHeight);
+			return screenRect.intersects(new Rectangle(0, 0, width, height));
+		}
+		
 		/** @private Renders the image. */
 		override public function render(target:BitmapData, point:Point, camera:Point):void
 		{
